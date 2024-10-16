@@ -1,0 +1,23 @@
+{
+    "name": "Rails Development Environment",
+    "image": "mcr.microsoft.com/devcontainers/ruby:3.2",  // RubyのDockerイメージを使用
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "rebornix.Ruby"  // Rubyの拡張機能をインストール
+        ]
+      }
+    },
+    "postCreateCommand": "bundle install && rails db:setup",
+    "forwardPorts": [3000],
+    "portsAttributes": {
+      "3000": {
+        "label": "Rails Server",
+        "onAutoForward": "openBrowser"
+      }
+    },
+    "features": {
+      "ghcr.io/devcontainers/features/node:1": {}  // Node.jsをインストール（JS処理に必要）
+    }
+  }
+  
